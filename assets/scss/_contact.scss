@@ -1,0 +1,317 @@
+.contact-wrapper {
+    .contact-image {
+        position: relative;
+
+        img {
+            @include imgw;
+        }
+
+        .shadow-shape {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+    }
+
+    .contact-content {
+        margin-left: 40px;
+
+        @include breakpoint (max-xl){
+            margin-left: 0;
+        }
+        .nav {
+            @include flex;
+            gap: 10px;
+            margin-top: 30px;
+
+            .nav-item {
+                .nav-link {
+                    padding: 15px 30px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    background: #0f3564;
+                    border-radius: 20px;
+                    line-height: 1;
+                    color: $white;
+
+                    &.active {
+                        background-color: $theme-color;
+                    }
+                }
+            }
+        }
+
+        .contact-box {
+            margin-top: 40px;
+
+            .form-clt {
+                input {
+                    width: 100%;
+                    outline: none;
+                    background-color: rgb(255, 255, 255);
+                    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
+                    width: 100%;
+                    border: 1px solid rgb(223, 227, 231);
+                    padding: 22px 30px;
+                    border-radius: 30px;
+                    line-height: 1;
+                    color: $text-color;
+                }
+
+                .form {
+               
+                    .single-select {
+                        background: transparent;
+                        border: none;
+                        text-align: center;
+                        background-color: rgb(255, 255, 255);
+                        box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
+                        width: 100%;
+                        border: 1px solid rgb(223, 227, 231);
+                        padding: 24px 30px;
+                        color: $text-color;
+                        position: relative;
+                        line-height: 1;
+                        border-radius: 30px;
+                        height: initial;
+    
+                        
+                        span {
+                            text-transform: capitalize;
+                            color: $text-color;
+                            font-weight: 500;
+                        }
+        
+                        .list {
+                            width: 100%;
+                            @include transition;
+    
+                            li {
+                                color: $header-color;
+                            }
+                        }
+        
+                        &::after {
+                            border-bottom: 2px solid $text-color;
+                            border-right: 2px solid $text-color;  
+                            height: 8px;
+                            margin-top: -6px;
+                            width: 8px;   
+                            right: 30px;           
+                        }
+                    }
+                }
+
+                .quriar-price-ranage {
+                    .get-insurance-five__form__progres {
+                        position: relative;
+                        margin: 26px 0 11px;
+                        
+                    }
+                
+                    .progress__title {
+                        font-size: 16px;
+                        font-weight: 400;
+                        color: $header-color;
+                       padding-bottom: 20px;
+                       font-family: $body-font;
+                    }
+                
+                    .get-insurance-five__form__progress {
+                        position: relative;
+                    }
+                    
+                    .get-insurance__progress-range .irs-single,
+                    .get-insurance__progress-range .irs-from,
+                    .get-insurance__progress-range .irs-to {
+                        display: none;
+                    }
+                    
+                    .get-insurance__progress-range .irs--flat {
+                        height: 12px;
+                    }
+                    
+                    .get-insurance__progress-range .irs--flat .irs-handle,
+                    .get-insurance__progress-range .irs--flat .irs-line,
+                    .get-insurance__progress-range .irs--flat .irs-bar {
+                        top: 0;
+                    }
+                    
+                    .get-insurance__progress-range .irs--flat .irs-line {
+                        height: 12px;
+                        border-radius: 6px;
+                        background-color: rgba(255, 255, 255, 1);
+                    }
+                    
+                    .get-insurance__progress-range .irs--flat .irs-bar {
+                        height: 12px;
+                        border-radius: 6px;
+                        background-image: linear-gradient(90deg, var(--theme-color) 0%, var(--theme-color) 100%);
+                    }
+                    
+                    .get-insurance__progress-range .irs--flat .irs-handle {
+                        height: 20px;
+                        width: 20px;
+                        background-color: $theme-color;
+                        border-radius: 50%;
+                        top: -5px;
+                    }
+                    
+                    .get-insurance__progress-range .irs--flat .irs-handle i:first-child {
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 8px;
+                        background-color: $white;
+                        top: 50%;
+                        transform: translate(-50%,-50%);
+                    }
+                    
+                    .get-insurance__progress {
+                        margin-bottom: 33px;
+                    }
+                
+                    .get-insurance__balance-box {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: $header-color;
+                    }
+                }
+            }
+
+            .theme-btn {
+                padding: 25px 44px;
+            }
+        }
+    }
+}
+
+// .map-items {
+    
+// }
+
+.contact-wrapper {
+    .contact-content2 {
+        background-color: $white;
+    }
+}
+
+.contact-wrapper-2 {
+
+    .contact-left-item {
+        .section-title {
+            @include breakpoint (max-md){
+                text-align: left;
+            }
+        }
+        .contact-item {
+            // @include flex;
+
+            // @include breakpoint (max-xl){
+            //     flex-wrap: wrap;
+            //     gap: 30px;
+            // }
+            
+
+            .contect-icon-item {
+                @include flex;
+                gap: 20px;
+
+                .contact-icon {
+                    width: 70px;
+                    height: 70px;
+                    line-height: 70px;
+                    text-align: center;
+                    background-color: $theme-color;
+                    color: $white;
+                    font-size: 32px;
+                }
+
+                .contect-content {
+                    span {
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: $header-color;
+                        font-family: $heading-font;
+                        display: inline-block;
+                        margin-bottom: 5px;
+                    }
+
+                    h6 {
+                        font-weight: 400;
+                        color: #555;
+                        font-size: 13px;
+
+                        a {
+                            color: #555;
+                        }
+                    }
+                }
+            }
+        }
+    }
+   
+    .contact-content {
+        padding: 34px;
+        background-color: $theme-color;
+        margin-left: 50px;
+
+        @include breakpoint (max-xl){
+           margin-left: 0;
+        }
+
+        h3 {
+            margin-bottom: 30px;
+            color: $white;
+        }
+
+        .contact-form-items {
+
+            .form-clt {
+                position: relative;
+    
+                input,textarea {
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    background: $white;
+                    color: #555;
+                    border: 1px solid #D1D1D1;
+                    padding: 12px 20px;
+                    font-weight: 400;
+                    font-size: 15px;
+                    text-transform: capitalize;
+        
+                    @include breakpoint (max-md){
+                        padding: 14px 20px;
+                    }
+        
+                    @include breakpoint (max-sm){
+                        padding: 12px 18px;
+                    }
+        
+                    &::placeholder {
+                        color: #555;
+                    }
+                }
+        
+                textarea {
+                    padding-bottom: 180px;
+                    resize: none;
+                }
+            }
+        }
+
+        .theme-btn {
+            border-radius: 0;
+            background: $white;
+            color: $header-color;
+
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}

@@ -1,0 +1,877 @@
+/*
+Theme Name: Insurn
+Author: ModinaTheme
+Author URI: https://themeforest.net/user/modinatheme/
+Description: Insurance Company HTML Template
+Version: 1.0.0
+*/
+
+/*
+=================================
+|***    Table of contents:   ***|
+=================================
+
+1. General styles
+2. Typography
+3. Helpers
+4. Preloader
+5. Go up button
+6. Header and navigation
+7. Hero Section
+8. About us
+9. Services
+10. Fun facts
+11. Projects
+12. Pricing
+13. Testimonial
+14. CTA
+15. Team
+16. Video Banner
+17. Shop
+18. Marquee
+19. Blog
+20. Footer
+
+Main Style file-> assets/css/main.css 
+*/
+
+/* ===== פונטים וצבעי טקסט משופרים ===== */
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Rubik:wght@500;600;700&display=swap");
+
+:root {
+  --text: #2d3539;
+  --text-muted: #4a5358;
+}
+
+body {
+  font-family: "Heebo", sans-serif;
+  color: var(--text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Rubik", sans-serif;
+  color: var(--header);
+}
+
+/* טקסט משני על רקע לבן - קריא יותר */
+p, .about-text, .service-box-items p, .pricing-list li,
+.footer-single-widget p, .footer-single-widget li a,
+.schedule-list .time-text, .schedule-list .day-text {
+  color: var(--text);
+}
+
+/* טקסט על רקע כחול/כהה - לבן ברור */
+.section-bg .choose-us-content p,
+.section-bg .choose-us-content h5,
+[style*="background-image"].hero-section .hero-content p,
+[style*="background-image"].hero-section .hero-content h1,
+.counter-section .counter-items p,
+.testimonial-box-items .content p,
+.cta-download-section .content p,
+.cta-download-section .content h3,
+.footer-section .content h3,
+.footer-section .footer-input input::placeholder {
+  color: #fff !important;
+}
+
+/* תיבות "למה לבחור בנו" – טקסט לבן על רקע כחול (דריסת צבע כותרות גלובלי) */
+.why-choose-us-wrapper .choose-us-content .icon-box-items h5,
+.why-choose-us-wrapper .choose-us-content .icon-box-main .icon-box-items h5 {
+  color: #fff !important;
+}
+
+/* סקשן פרויקטים – טקסט לבן על רקע כחול (מקרי ביטוח, פסקה) */
+.project-section .project-left-content .section-title span,
+.project-section .project-left-content .section-title h2,
+.project-section .project-left-content p {
+  color: #fff !important;
+}
+.project-section .project-left-content .section-title span {
+  opacity: 0.9;
+}
+
+.footer-section .footer-input input {
+  color: #fff;
+}
+
+/* דריסת אפור קשיח – קריאות טובה יותר על רקע לבן */
+.team-box-items .content p,
+.news-card-items-3 .thumb .news-content span,
+.search-bar .contact-search-form-box p {
+  color: var(--text) !important;
+}
+
+/* קישורי פוטר – גוון ברור על רקע כהה */
+.footer-widget-wrapper .footer-single-widget .list-area ul li a {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.footer-widget-wrapper .footer-single-widget .list-area ul li a:hover {
+  color: #fff !important;
+}
+
+/* כפתורים וכותרות – שימוש בפונט החדש */
+.theme-btn, .link-btn, .app-btn,
+.mean__menu-wrapper .main-menu a {
+  font-family: "Rubik", "Heebo", sans-serif;
+}
+
+/* פונט עדכני בהדר ובפוטר – בכל האתר */
+.header-section .header-main,
+.header-section .header-contact,
+.header-section-3 .header-main,
+.header-top-section,
+.header-main .main-menu ul li a,
+.header-main .main-menu ul li .submenu li a,
+.footer-section,
+.footer-section-3,
+.footer-widget-wrapper,
+.footer-single-widget .widget-head h3,
+.footer-single-widget p,
+.footer-single-widget .schedule-list,
+.footer-single-widget .list-area ul li a,
+.footer-single-widget .footer-gallery,
+.footer-newsletter-wrapper .content h3,
+.footer-input input,
+.footer-input .newsletter-btn,
+.footer-bottom-wrapper .footer-bottom-right p,
+.footer-bottom-wrapper .footer-menu a,
+.footer-bottom-21 .footer-bottom-right p,
+.footer-bottom-21 .footer-menu a,
+.breadcrumb-wrapper .breadcrumb-items a,
+.breadcrumb-wrapper .page-heading h1,
+.offcanvas__content .offcanvas-title,
+.offcanvas__content p,
+.offcanvas__contact h3,
+.offcanvas__contact .contact-list {
+  font-family: "Heebo", "Rubik", sans-serif !important;
+}
+.footer-single-widget .widget-head h3,
+.footer-newsletter-wrapper .content h3 {
+  font-family: "Rubik", "Heebo", sans-serif !important;
+}
+
+/* טקסט בפוטר על רקע כחול – לבן ברור (לא אפור) */
+.footer-section .footer-widget-wrapper .widget-head h3,
+.footer-section .footer-widget-wrapper .footer-single-widget p,
+.footer-section .footer-widget-wrapper .schedule-list .time-text,
+.footer-section .footer-widget-wrapper .schedule-list .day-text,
+.footer-section .footer-widget-wrapper .list-area ul li a,
+.footer-section .footer-newsletter-wrapper .content h3,
+.footer-section .footer-newsletter-wrapper .content p,
+.footer-section .footer-bottom-right p,
+.footer-section .footer-bottom-wrapper .footer-menu a,
+.footer-section .footer-bottom-21 .footer-bottom-right p,
+.footer-section .footer-bottom-21 .footer-menu a,
+.footer-section-3 .footer-widget-wrapper .widget-head h3,
+.footer-section-3 .footer-widget-wrapper .footer-single-widget p,
+.footer-section-3 .footer-widget-wrapper .schedule-list,
+.footer-section-3 .footer-widget-wrapper .list-area ul li a,
+.footer-section-3 .footer-newsletter-wrapper .content h3,
+.footer-section-3 .footer-bottom-right p,
+.footer-section-3 .footer-menu a,
+.footer-section.bg-cover .footer-widget-wrapper .widget-head h3,
+.footer-section.bg-cover .footer-single-widget p,
+.footer-section.bg-cover .schedule-list,
+.footer-section.bg-cover .list-area ul li a,
+.footer-section.bg-cover .footer-bottom-right p,
+.footer-section.bg-cover .footer-menu a {
+  color: #fff !important;
+}
+.footer-section .footer-widget-wrapper .schedule-list .time-text,
+.footer-section .footer-widget-wrapper .schedule-list .day-text,
+.footer-section-3 .footer-widget-wrapper .schedule-list .time-text,
+.footer-section-3 .footer-widget-wrapper .schedule-list .day-text {
+  color: #fff !important;
+}
+.footer-section .footer-widget-wrapper .list-area ul li a:hover,
+.footer-section-3 .footer-widget-wrapper .list-area ul li a:hover {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* ===== תיקון שכבות רקע - רקעים מתחת לתוכן ===== */
+
+/* תמונה 1: אודות – האליפסה הכחולה בצד התמונות (בעברית: שמאל), לא בצד הטקסט */
+.about-section .bg-shape {
+  z-index: -1;
+}
+/* RTL: מעבירים את האליפסה לשמאל כדי שתשב ליד עמודת התמונות (בעקבית התמונות בצד שמאל) */
+[dir="rtl"] .about-section .bg-shape {
+  right: auto;
+  left: 10px;
+}
+.about-section .container,
+.about-section .about-wrapper {
+  position: relative;
+  z-index: 1;
+}
+.about-section .about-content {
+  position: relative;
+  z-index: 2;
+}
+.about-section .about-items .content,
+.about-section .about-items ul {
+  position: relative;
+  z-index: 1;
+}
+
+/* תמונה 2: פרויקטים – תוכן לא עולה על האלמנטים; מניעת חפיפה בין עמודת טקסט לתמונות */
+.project-section .project-left-content {
+  position: relative;
+  z-index: 10;
+}
+.project-section .project-wrapper .project-right-items {
+  z-index: 2;
+}
+.project-section .project-right-items .project-image .project-content {
+  z-index: 3;
+}
+/* מניעת חפיפה: תמונות הפרויקט לא נכנסות לעמודת הטקסט/כפתור */
+.project-section .project-wrapper .project-right-items {
+  margin-right: 0;
+  margin-left: 0;
+}
+.project-section .project-wrapper .row {
+  align-items: flex-start;
+}
+.project-section .project-right-items .project-image {
+  overflow: hidden;
+  isolation: isolate;
+}
+/* מניעת הצגת תוכן דיבוג/ממדים על התמונות – וידוא ש־pseudo לא מציג טקסט */
+.project-section .project-right-items .project-image::before,
+.project-section .project-right-items .project-image::after {
+  content: none !important;
+}
+/* RTL: וידוא שעמודת התמונות לא פולשת לימין (עמודת הטקסט) */
+[dir="rtl"] .project-section .project-wrapper .project-right-items {
+  margin-right: 0;
+  margin-left: 0;
+}
+/* במובייל/טאבלט – ביטול מרווח שלילי כדי שלא יהיה overlap */
+@media (max-width: 1399px) {
+  .project-section .project-wrapper .project-right-items {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+/* תמונה 3: למה לבחור בנו – תמונה מימין + צורות הרקע מאחורי התוכן */
+/* הצגת התמונה בצד ימין (ב-RTL עמודת התמונה היא הימנית) */
+.why-choose-us-wrapper .choose-us-image-2 {
+  display: block !important;
+  min-height: 320px;
+}
+.why-choose-us-wrapper .choose-us-image-2 img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.why-choose-us-section .choose-us-image {
+  z-index: -1;
+}
+.why-choose-us-wrapper .choose-us-content .icon-box-main .left-shape,
+.why-choose-us-wrapper .choose-us-content .icon-box-main .left-bottom-shape {
+  z-index: -1;
+}
+.why-choose-us-wrapper .choose-us-content .icon-box-main .icon-box-items {
+  position: relative;
+  z-index: 1;
+}
+
+.service-section.fix .container,
+.service-section.fix .service-wrapper-2 {
+  position: relative;
+  z-index: 1;
+}
+
+.why-choose-us-section .container,
+.why-choose-us-section .why-choose-us-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.project-section .container,
+.project-section .project-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.team-section .container {
+  position: relative;
+  z-index: 1;
+}
+.team-box-items .thumb,
+.team-box-items .content {
+  position: relative;
+  z-index: 2;
+}
+
+.pricing-section .container {
+  position: relative;
+  z-index: 1;
+}
+.pricing-box-items .pricing-header,
+.pricing-box-items .pricing-list {
+  position: relative;
+  z-index: 1;
+}
+
+.counter-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-download-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-section .container {
+  position: relative;
+  z-index: 1;
+}
+.footer-section .bg-shape {
+  z-index: -1;
+}
+
+/* ===== המלצות (Testimonials) – RTL: אליפסה בצד התמונות, סדר טקסט ותמונה מתהפך ===== */
+[dir="rtl"] .testimonial-wrapper .testimonial-box-items {
+  flex-direction: row-reverse;
+  border-radius: 0 180px 180px 0;
+  margin-left: 130px;
+  margin-right: 50px;
+}
+@media (max-width: 1399px) {
+  [dir="rtl"] .testimonial-wrapper .testimonial-box-items {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+[dir="rtl"] .testimonial-wrapper .testimonial-box-items .ratting-shape {
+  left: auto;
+  right: 40px;
+}
+[dir="rtl"] .testimonial-wrapper .testimonial-box-items .quote-icon {
+  right: auto;
+  left: 115px;
+}
+[dir="rtl"] .testimonial-wrapper .testimonial-box-items .content {
+  text-align: right;
+}
+[dir="rtl"] .testimonial-wrapper .testi-client-info {
+  margin-left: 0;
+  margin-right: 110px;
+}
+@media (max-width: 991px) {
+  [dir="rtl"] .testimonial-wrapper .testi-client-info {
+    margin-right: 0;
+  }
+}
+[dir="rtl"] .testimonial-wrapper .testi-client-info .client-image-1.style-2 {
+  margin-left: 0;
+  margin-right: -215px;
+}
+@media (max-width: 991px) {
+  [dir="rtl"] .testimonial-wrapper .testi-client-info .client-image-1.style-2 {
+    margin-right: 0;
+  }
+}
+[dir="rtl"] .testimonial-wrapper .swiper-dot {
+  right: auto;
+  left: 0;
+}
+[dir="rtl"] .testimonial-wrapper .swiper-dot::before {
+  left: auto;
+  right: 78px;
+}
+
+/* ===== התאמה למובייל וטאבלט ===== */
+/* טאבלט (עד 991px) */
+@media (max-width: 991px) {
+  .about-section .about-content,
+  .about-section .about-items .content,
+  .about-section .about-items ul {
+    z-index: 1;
+  }
+  .project-section .project-left-content {
+    z-index: 5;
+  }
+  .project-section .project-wrapper .project-right-items {
+    z-index: 1;
+  }
+  .why-choose-us-wrapper .choose-us-image-2,
+  .why-choose-us-wrapper .choose-us-image-2 img {
+    min-height: 260px;
+  }
+  .why-choose-us-wrapper .choose-us-content .icon-box-main .icon-box-items {
+    padding: 20px 12px;
+    padding-top: 0;
+  }
+  [dir="rtl"] .testimonial-wrapper .testimonial-box-items .content {
+    text-align: center;
+  }
+  [dir="rtl"] .testimonial-wrapper .testimonial-box-items {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* מובייל גדול / טאבלט קטן (עד 767px) */
+@media (max-width: 767px) {
+  .why-choose-us-wrapper .choose-us-image-2,
+  .why-choose-us-wrapper .choose-us-image-2 img {
+    min-height: 220px;
+  }
+  .theme-btn, .link-btn {
+    padding: 16px 28px;
+    font-size: 15px;
+  }
+  .section-title h2 {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+  .section-title span {
+    font-size: 14px;
+  }
+  .footer-section .footer-input input,
+  .footer-section .footer-input .newsletter-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .footer-section .content h3 {
+    font-size: 22px;
+  }
+}
+
+/* מובייל (עד 575px) */
+@media (max-width: 575px) {
+  .why-choose-us-wrapper .choose-us-image-2,
+  .why-choose-us-wrapper .choose-us-image-2 img {
+    min-height: 200px;
+  }
+  .section-title h2 {
+    font-size: 24px;
+  }
+  .theme-btn, .link-btn {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+  .project-section .project-left-content {
+    z-index: 3;
+  }
+  .pricing-box-items .pricing-header .price h3,
+  .pricing-box-items .pricing-list {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .footer-widget-wrapper .footer-single-widget .list-area ul li a {
+    font-size: 14px;
+  }
+}
+
+/* מובייל קטן (עד 480px) */
+@media (max-width: 480px) {
+  .why-choose-us-wrapper .choose-us-image-2,
+  .why-choose-us-wrapper .choose-us-image-2 img {
+    min-height: 180px;
+  }
+  .section-title h2 {
+    font-size: 22px;
+  }
+  body {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .header-contact a {
+    font-size: 13px;
+  }
+}
+
+/* מניעת overflow אופקי ב-RTL על מובייל */
+@media (max-width: 991px) {
+  [dir="rtl"] .about-section .container,
+  [dir="rtl"] .project-section .container,
+  [dir="rtl"] .why-choose-us-section .container,
+  [dir="rtl"] .testimonial-section .container {
+    overflow-x: hidden;
+  }
+  [dir="rtl"] .testimonial-wrapper .testimonial-box-items {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  [dir="rtl"] .testimonial-wrapper .testimonial-box-items {
+    padding: 24px 16px;
+  }
+}
+
+/* ===== RTL + מובייל/טאבלט: יישור טקסט לימין או למרכז (לא לשמאל) ===== */
+
+/* RTL – יישור ברירת מחדל לימין */
+[dir="rtl"] {
+  text-align: right;
+}
+[dir="rtl"] .section-title:not(.text-center) {
+  text-align: right;
+}
+[dir="rtl"] .section-title span,
+[dir="rtl"] .section-title h2 {
+  text-align: inherit;
+}
+[dir="rtl"] .about-wrapper .about-content .section-title,
+[dir="rtl"] .about-wrapper .about-content .about-text,
+[dir="rtl"] .about-wrapper .about-content .about-items .content,
+[dir="rtl"] .about-wrapper .about-content .about-items ul li .content {
+  text-align: right;
+}
+[dir="rtl"] .project-left-content .section-title,
+[dir="rtl"] .project-left-content p {
+  text-align: right;
+}
+[dir="rtl"] .why-choose-us-wrapper .choose-us-content .section-title,
+[dir="rtl"] .why-choose-us-wrapper .choose-us-content p {
+  text-align: right;
+}
+[dir="rtl"] .news-content-left .section-title,
+[dir="rtl"] .news-box-items .content {
+  text-align: right;
+}
+[dir="rtl"] .footer-single-widget .widget-head h3,
+[dir="rtl"] .footer-single-widget .schedule-list,
+[dir="rtl"] .footer-single-widget .list-area ul li {
+  text-align: right;
+}
+[dir="rtl"] .header-main .main-menu ul li a {
+  text-align: right;
+}
+[dir="rtl"] .offcanvas__content .offcanvas-title,
+[dir="rtl"] .offcanvas__content p,
+[dir="rtl"] .offcanvas__contact h3,
+[dir="rtl"] .offcanvas__contact .contact-list {
+  text-align: right;
+}
+[dir="rtl"] .service-box-items .content p,
+[dir="rtl"] .service-box-items .icon-items .content {
+  text-align: right;
+}
+[dir="rtl"] .pricing-box-items .pricing-header .content,
+[dir="rtl"] .pricing-box-items .pricing-list ul li {
+  text-align: right;
+}
+[dir="rtl"] .cta-download-section .content h3,
+[dir="rtl"] .cta-download-section .content p {
+  text-align: right;
+}
+[dir="rtl"] .counter-section .counter-items .content p {
+  text-align: right;
+}
+[dir="rtl"] .footer-section .content h3 {
+  text-align: right;
+}
+[dir="rtl"] .footer-bottom-right p,
+[dir="rtl"] .footer-bottom-wrapper .footer-menu {
+  text-align: right;
+}
+
+/* כותרות שממילא במרכז – נשארות במרכז */
+[dir="rtl"] .section-title.text-center,
+[dir="rtl"] .section-title.text-center span,
+[dir="rtl"] .section-title.text-center h2 {
+  text-align: center;
+}
+[dir="rtl"] .pricing-button.text-center,
+[dir="rtl"] .testimonial-wrapper .testimonial-box-items .content {
+  text-align: right;
+}
+@media (max-width: 991px) {
+  [dir="rtl"] .testimonial-wrapper .testimonial-box-items .content {
+    text-align: center;
+  }
+}
+
+/* דריסת main.css: במובייל מוגדר text-align: left – מתקנים ל-RTL */
+@media (max-width: 767px) {
+  [dir="rtl"] .about-wrapper .about-content .section-title {
+    text-align: right !important;
+  }
+  [dir="rtl"] .about-wrapper-2 .about-content .section-title {
+    text-align: right !important;
+  }
+  [dir="rtl"] .about-wrapper-3 .about-content .section-title {
+    text-align: right !important;
+  }
+  [dir="rtl"] .project-section .section-title {
+    text-align: right !important;
+  }
+  [dir="rtl"] .project-section .project-left-content .section-title,
+  [dir="rtl"] .project-section .project-left-content p {
+    text-align: right !important;
+  }
+  [dir="rtl"] .news-wrapper .news-content-left .section-title {
+    text-align: right !important;
+  }
+  [dir="rtl"] .contact-wrapper-2 .contact-left-item .section-title {
+    text-align: right !important;
+  }
+  [dir="rtl"] .details-feature-wrapper .section-title {
+    text-align: right !important;
+  }
+  [dir="rtl"] .team-details-wrapper .details-content .section-title {
+    text-align: right !important;
+  }
+  [dir="rtl"] .feature-company-wrapper .feature-company-content {
+    text-align: right !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  [dir="rtl"] .feature-company-wrapper .feature-company-content {
+    text-align: right !important;
+  }
+  [dir="rtl"] .details-feature-wrapper .section-title {
+    text-align: right !important;
+  }
+}
+
+/* אלמנטים שתמיד במרכז */
+[dir="rtl"] .text-center,
+[dir="rtl"] .pricing-button.text-center,
+[dir="rtl"] .homemenu-content.text-center {
+  text-align: center !important;
+}
+
+/* רשימות וכרטיסים */
+[dir="rtl"] .icon-box-items h5 {
+  text-align: center;
+}
+[dir="rtl"] .schedule-list li {
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+/* RTL – שדות קלט וכותרות נוספות */
+[dir="rtl"] input,
+[dir="rtl"] textarea {
+  text-align: right;
+  direction: rtl;
+}
+[dir="rtl"] .footer-section .footer-input input {
+  text-align: right;
+}
+[dir="rtl"] .search-bar .contact-search-form-box input {
+  text-align: right;
+}
+[dir="rtl"] .hero-content .section-title,
+[dir="rtl"] .hero-content p,
+[dir="rtl"] .hero-content h1 {
+  text-align: right;
+}
+
+/* Hero – בדסקטופ הטקסט מיושר לאמצע */
+@media (min-width: 992px) {
+  .hero-1 .hero-content,
+  .hero-1 .hero-content p,
+  .hero-1 .hero-content h1,
+  .hero-1 .hero-content .theme-btn {
+    text-align: center !important;
+  }
+  [dir="rtl"] .hero-1 .hero-content,
+  [dir="rtl"] .hero-1 .hero-content p,
+  [dir="rtl"] .hero-1 .hero-content h1 {
+    text-align: center !important;
+  }
+}
+[dir="rtl"] .team-box-items .content h3,
+[dir="rtl"] .team-box-items .content p {
+  text-align: center;
+}
+@media (max-width: 1199px) {
+  [dir="rtl"] .team-box-items .content h3,
+  [dir="rtl"] .team-box-items .content p {
+    text-align: center;
+  }
+}
+
+/* ===== index-2.html & index-3.html – רקעים, יישורים, עברית ===== */
+
+/* index-2: רקעים מאחורי תוכן */
+.hero-section-2 .hero-bg { z-index: -1; }
+.hero-section-2 .container,
+.hero-section-2 .hero-content { position: relative; z-index: 1; }
+.about-section-2 .container,
+.about-section-2 .about-wrapper { position: relative; z-index: 1; }
+.about-section-2 .about-image .bg-shape { z-index: -1; }
+.service-section-2 .container { position: relative; z-index: 1; }
+.service-section-2 .service-card-items .bg-shape { z-index: -1; }
+.feature-company-section .container { position: relative; z-index: 1; }
+.feature-company-section .feature-company-wrapper { position: relative; z-index: 1; }
+.faq-section-2 .container,
+.faq-section-2 .faq-wrapper { position: relative; z-index: 1; }
+.faq-section-2 .faq-image .bg-shape { z-index: -1; }
+.team-section-2 .container { position: relative; z-index: 1; }
+.work-process-section-2 .container { position: relative; z-index: 1; }
+.testimonial-section-2 .container,
+.testimonial-section-2 .testimonial-wrapper-2 { position: relative; z-index: 1; }
+.counter-section-2 .container { position: relative; z-index: 1; }
+.footer-section.bg-cover .container { position: relative; z-index: 1; }
+
+/* index-3: רקעים מאחורי תוכן */
+.header-section-3 .bg-shape { z-index: -1; }
+.hero-section-3 .container,
+.hero-section-3 .hero-content { position: relative; z-index: 1; }
+.service-section-3 .bg-shape { z-index: -1; }
+.service-section-3 .container { position: relative; z-index: 1; }
+.about-section-3 .container,
+.about-section-3 .about-wrapper-3 { position: relative; z-index: 1; }
+.about-section-3 .about-text-shape { z-index: -1; }
+.service-section-5 .container { position: relative; z-index: 1; }
+.work-process-section-3 .left-shape { z-index: -1; }
+.work-process-section-3 .container { position: relative; z-index: 1; }
+.project-section-3 .container { position: relative; z-index: 1; }
+.contact-section-3 .container { position: relative; z-index: 1; }
+.cta-section-3 .cta-wrapper-3 { position: relative; z-index: 1; }
+.counter-section-3 .container { position: relative; z-index: 1; }
+.testimonial-section-3 .container { position: relative; z-index: 1; }
+.news-section-3 .container { position: relative; z-index: 1; }
+.footer-section-3 .container { position: relative; z-index: 1; }
+
+/* index-2 & index-3: טקסט לבן על רקע כחול/כהה */
+.team-section-2 .section-title span,
+.team-section-2 .section-title h2,
+.team-section-2.bg-cover .section-title,
+.testimonial-section-2 .testimonial-left-items .section-title span,
+.testimonial-section-2 .testimonial-left-items .section-title h2,
+.testimonial-section-2 .testimonial-card-items .content p,
+.testimonial-section-2 .testimonial-card-items .content h3,
+.counter-section-2 .counter-box-items-2,
+.project-section-3 .section-title span,
+.project-section-3 .section-title h2,
+.contact-section-3 .contact-left-item .section-title,
+.contact-section-3 .contact-left-item p,
+.testimonial-section-3 .section-title,
+.counter-section-3 .counter-box-321 p,
+.cta-section-3 .content h3,
+.cta-section-3 .content p {
+  color: #fff !important;
+}
+.hero-section-2 .hero-content p,
+.hero-section-2 .hero-content h1,
+.hero-3 .hero-content p,
+.hero-3 .hero-content h1 {
+  color: #fff !important;
+}
+
+/* index-2 & index-3: RTL יישור לימין – תוכן אודות, שאלות, המלצות */
+[dir="rtl"] .about-section-2 .about-content .section-title,
+[dir="rtl"] .about-section-2 .about-content .about-text,
+[dir="rtl"] .about-section-2 .about-content .icon-items .content,
+[dir="rtl"] .about-section-3 .about-content .section-title,
+[dir="rtl"] .about-section-3 .about-content .about-text,
+[dir="rtl"] .about-section-3 .about-content .about-list {
+  text-align: right;
+}
+[dir="rtl"] .faq-section-2 .faq-wrapper .section-title,
+[dir="rtl"] .faq-section-2 .accordion-item .accordion-button,
+[dir="rtl"] .testimonial-section-2 .testimonial-left-items .section-title,
+[dir="rtl"] .testimonial-section-2 .testimonial-card-items .content,
+[dir="rtl"] .testimonial-section-3 .section-title,
+[dir="rtl"] .testimonial-section-3 .testimonial-box-items .content {
+  text-align: right;
+}
+@media (max-width: 767px) {
+  [dir="rtl"] .about-section-2 .section-title,
+  [dir="rtl"] .about-section-3 .section-title,
+  [dir="rtl"] .faq-section-2 .section-title,
+  [dir="rtl"] .team-section-2 .section-title,
+  [dir="rtl"] .project-section-3 .section-title,
+  [dir="rtl"] .contact-section-3 .section-title {
+    text-align: right !important;
+  }
+}
+
+/* index-2 & index-3: Hero בדסקטופ – יישור לאמצע */
+@media (min-width: 992px) {
+  .hero-section-2 .hero-content,
+  .hero-section-2 .hero-content p,
+  .hero-section-2 .hero-content h1,
+  .hero-3 .hero-content,
+  .hero-3 .hero-content p,
+  .hero-3 .hero-content h1 {
+    text-align: center !important;
+  }
+  [dir="rtl"] .hero-section-2 .hero-content,
+  [dir="rtl"] .hero-section-2 .hero-content p,
+  [dir="rtl"] .hero-section-2 .hero-content h1,
+  [dir="rtl"] .hero-3 .hero-content,
+  [dir="rtl"] .hero-3 .hero-content p,
+  [dir="rtl"] .hero-3 .hero-content h1 {
+    text-align: center !important;
+  }
+}
+
+/* ===== כל העמודים: רקעים, מעברים, מניעת יציאת תוכן ===== */
+
+/* Breadcrumb / Page title – רקע מאחורי, תוכן מלמעלה */
+.breadcrumb-wrapper { position: relative; overflow: hidden; }
+.breadcrumb-wrapper .container { position: relative; z-index: 1; }
+.breadcrumb-wrapper .page-heading,
+.breadcrumb-wrapper .breadcrumb-items { position: relative; z-index: 1; }
+.breadcrumb-wrapper.bg-cover::before { display: none; }
+[dir="rtl"] .breadcrumb-wrapper .breadcrumb-items { text-align: right; }
+[dir="rtl"] .breadcrumb-wrapper .page-heading h1 { text-align: right; }
+
+/* סקשנים – מניעת יציאת תוכן ומעברים חלקים */
+section.fix,
+section.section-padding,
+.error-section,
+.pricing-section,
+.team-section,
+.contact-section-21,
+.service-section-3,
+.project-section,
+.news-section {
+  overflow-x: hidden;
+  position: relative;
+}
+section .container { position: relative; z-index: 1; }
+.bg-shape,
+.left-shape,
+.about-text-shape { position: absolute; z-index: 0; pointer-events: none; }
+
+/* מעברים חלקים בין סקשנים */
+section {
+  transition: opacity 0.2s ease;
+}
+.breadcrumb-wrapper,
+.page-heading,
+.breadcrumb-items li {
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+/* טקסט על רקע breadcrumb כהה */
+.breadcrumb-wrapper.bg-cover .page-heading h1,
+.breadcrumb-wrapper.bg-cover .breadcrumb-items a,
+.breadcrumb-wrapper.bg-cover .breadcrumb-items li {
+  color: #fff;
+}
+.breadcrumb-wrapper.bg-cover .breadcrumb-items a:hover {
+  opacity: 0.9;
+}
+
+/* ===== ONE-PAGE-ELAD: גלילה חלקה ל-anchor links ===== */
+html {
+  scroll-behavior: smooth;
+}
+@media (min-width: 992px) {
+  html {
+    scroll-padding-top: 100px;
+  }
+}
+
+

@@ -1,0 +1,26 @@
+.brand-wrapper {
+    padding: 50px;
+    // background-image: linear-gradient( 180deg, rgb(20,136,204) 0%, rgb(43,50,178) 100%);
+    background-repeat: no-repeat;
+
+    .brand-image {
+        border-left: 1px solid $white;
+    }
+}
+
+.brand-wrapper-2 {
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    padding: 50px 0;
+    position: relative;
+    z-index: 9;
+
+    &.style-2 {
+        border-radius: 50px 50px 50px 50px;
+        border-radius: #fafafa;
+    }
+
+    .brand-image {
+        border-left: 1px solid $text-color;
+    }
+}

@@ -1,0 +1,102 @@
+.cta-download-section {
+    background: linear-gradient( 180deg, rgb(43,50,178) 0%, rgb(20,136,204) 100%);
+    padding: 60px 0;
+}
+
+.cta-download-wrapper {
+    @include flex;
+    justify-content: space-between;
+
+    @include breakpoint (max-xl){
+       flex-wrap: wrap;
+       gap: 30px;
+       justify-content: center;
+       text-align: center;
+    }
+
+    .content {
+        margin-left: 240px;
+
+        @include breakpoint (max-xl){
+            margin-left: 0;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: $white;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: $white;
+        }
+    }
+
+    .app-button {
+        @include flex;
+        gap: 25px;
+        
+        @include breakpoint (max-sm){
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .app-btn {
+            border-radius: 12px;
+            display: inline-block;
+            padding: 18px 30px;
+            line-height: 1;
+            background-color: $white;
+            font-size: 20px;
+            font-family: $heading-font;
+            min-width: 255px;
+
+            @include breakpoint (max-md){
+               padding: 12px 20px;
+               font-size: 16px;
+               min-width: initial;
+             }
+
+            img {
+                margin-right: 15px;
+            }
+
+            &.style-2 {
+                background-color: #0f3564;
+                color: $white;
+            }
+        }
+    }
+}
+
+.cta-wrapper-3 {
+    padding: 60px 120px;
+    border-radius: 20px;
+    @include flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 99;
+
+    @include breakpoint (max-xl){
+        flex-wrap: wrap;
+        padding: 40px;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    p {
+        font-size: 36px;
+        font-weight: bold;
+        color: $white;
+    }
+
+    .theme-btn {
+        border-radius: 10px;
+        background: $white;
+        color: $header-color;
+
+        &:hover {
+            color: $white;
+        }
+    }
+}
