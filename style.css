@@ -648,6 +648,9 @@ p, .about-text, .service-box-items p, .pricing-list li,
 [dir="rtl"] .icon-box-items h5 {
   text-align: center;
 }
+[dir="rtl"] .why-choose-us-wrapper .choose-us-content .icon-items-area .row {
+  row-gap: 14px;
+}
 [dir="rtl"] .schedule-list li {
   text-align: right;
   display: flex;
@@ -697,6 +700,32 @@ p, .about-text, .service-box-items p, .pricing-list li,
     text-align: center;
   }
 }
+
+/* ONE-PAGE-ELAD: פוטר ללא אזור הרשמה + גובה קומפקטי */
+.footer-widget-wrapper {
+  padding: 28px 0 34px !important;
+}
+.footer-widget-wrapper .footer-single-widget {
+  margin-top: 8px !important;
+}
+.footer-widget-wrapper .footer-single-widget .widget-head {
+  margin-bottom: 12px !important;
+}
+.footer-widget-wrapper .footer-single-widget .schedule-list li:not(:last-child) {
+  margin-bottom: 10px !important;
+}
+.footer-widget-wrapper .footer-single-widget .list-area ul li:not(:last-child) {
+  margin-bottom: 10px !important;
+}
+.footer-bottom-wrapper {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  min-height: 56px !important;
+}
+.footer-bottom-wrapper .footer-bottom-right {
+  padding: 10px 16px !important;
+}
+
 
 /* ===== index-2.html & index-3.html – רקעים, יישורים, עברית ===== */
 
@@ -871,6 +900,315 @@ html {
 @media (min-width: 992px) {
   html {
     scroll-padding-top: 100px;
+  }
+}
+
+/* ONE-PAGE-ELAD: ניגודיות טקסט בפוטר */
+.footer-section .widget-head h3,
+.footer-section .footer-single-widget p,
+.footer-section .footer-single-widget li,
+.footer-section .schedule-list .day-text,
+.footer-section .schedule-list .time-text,
+.footer-section .list-area ul li a,
+.footer-section .footer-bottom-right p,
+.footer-section .footer-menu li a,
+.footer-section .content h3 {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+.footer-section .list-area ul li a,
+.footer-section .footer-menu li a {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+.footer-section .list-area ul li a:hover,
+.footer-section .footer-menu li a:hover {
+  color: #ffffff !important;
+}
+
+/* ONE-PAGE-ELAD: מונה שנות ניסיון במקטע אודות */
+.about-items .content .experience-count {
+  font-family: "Rubik", "Heebo", sans-serif;
+  font-size: 88px;
+  font-weight: 700;
+  line-height: 0.95;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+  background: url("assets/img/about/30.png") center/cover no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: 0 0 0 rgba(15, 53, 100, 0.18);
+}
+@media (max-width: 767px) {
+  .about-items .content .experience-count {
+    font-size: 66px;
+  }
+}
+
+/* ONE-PAGE-ELAD: מסלול ליווי יחיד - כתב גדול, מרכזי ואייקונים מונפשים */
+#pricing .section-title h2 {
+  font-size: 54px;
+  line-height: 1.2;
+}
+#pricing .pricing-box-items.active .pricing-header .content,
+#pricing .pricing-box-items.active .pricing-list {
+  text-align: center !important;
+}
+#pricing .pricing-box-items.active .pricing-header .content h4 {
+  font-size: 42px;
+  line-height: 1.25;
+}
+#pricing .pricing-box-items.active .pricing-header .content p {
+  font-size: 27px;
+  line-height: 1.5;
+}
+#pricing .pricing-box-items.active .pricing-list ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center !important;
+}
+#pricing .pricing-box-items.active .pricing-list ul li i {
+  display: none;
+}
+#pricing .pricing-box-items.active .pricing-list ul li .feature-icon {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 18px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  animation: featurePulse 2.2s ease-in-out infinite;
+}
+#pricing .pricing-box-items.active .pricing-header .price .price-text .hero-shield {
+  animation: featurePulse 2.4s ease-in-out infinite;
+}
+#pricing .fi-1 { animation-delay: 0s !important; }
+#pricing .fi-2 { animation-delay: .18s !important; }
+#pricing .fi-3 { animation-delay: .36s !important; }
+#pricing .fi-4 { animation-delay: .54s !important; }
+#pricing .fi-5 { animation-delay: .72s !important; }
+#pricing .pricing-box-items.active .pricing-button .theme-btn {
+  font-size: 24px;
+  padding: 18px 42px;
+}
+
+@keyframes featurePulse {
+  0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,.2); }
+  50% { transform: translateY(-2px) scale(1.05); box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+}
+
+@media (max-width: 1199px) {
+  #pricing .section-title h2 { font-size: 42px; }
+  #pricing .pricing-box-items.active .pricing-header .content h4 { font-size: 33px; }
+  #pricing .pricing-box-items.active .pricing-header .content p { font-size: 22px; }
+  #pricing .pricing-box-items.active .pricing-list ul li { font-size: 21px; }
+}
+@media (max-width: 767px) {
+  #pricing .section-title h2 { font-size: 31px; }
+  #pricing .pricing-box-items.active .pricing-header .content h4 { font-size: 25px; }
+  #pricing .pricing-box-items.active .pricing-header .content p { font-size: 17px; }
+  #pricing .pricing-box-items.active .pricing-list ul li { font-size: 16px; gap: 8px; }
+  #pricing .pricing-box-items.active .pricing-list ul li .feature-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+  #pricing .pricing-box-items.active .pricing-button .theme-btn {
+    font-size: 18px;
+    padding: 14px 24px;
+  }
+}
+
+/* ONE-PAGE-ELAD: סקשן אמינות - אייקונים בסליידר */
+.brand-wrapper .brand-image {
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trust-icon-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #fff;
+  text-align: center;
+  padding: 6px 10px;
+}
+.trust-icon-slide i {
+  font-size: 28px;
+  color: #fff;
+  animation: trustIconFloat 2.4s ease-in-out infinite;
+}
+.trust-icon-slide span {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+@keyframes trustIconFloat {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-3px); opacity: 0.9; }
+}
+@media (max-width: 767px) {
+  .trust-icon-slide i {
+    font-size: 22px;
+  }
+  .trust-icon-slide span {
+    font-size: 12px;
+  }
+}
+
+/* ONE-PAGE-ELAD: FAQ landing section */
+.faq-landing-section .section-title p {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.faq-landing-accordion .accordion-item {
+  border: 1px solid rgba(15, 53, 100, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  background: #fff;
+}
+.faq-landing-accordion .accordion-button {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f3564;
+  background: #fff;
+  padding: 18px 22px;
+}
+.faq-landing-accordion .accordion-button:not(.collapsed) {
+  color: #0f3564;
+  background: #f4f8ff;
+  box-shadow: none;
+}
+.faq-landing-accordion .accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(15, 53, 100, 0.2);
+}
+.faq-landing-accordion .accordion-body {
+  font-size: 18px;
+  line-height: 1.75;
+  color: #2d3539;
+  padding: 8px 22px 22px;
+}
+@media (max-width: 767px) {
+  .faq-landing-accordion .accordion-button {
+    font-size: 18px;
+    padding: 14px 16px;
+  }
+  .faq-landing-accordion .accordion-body {
+    font-size: 16px;
+    padding: 6px 16px 16px;
+  }
+}
+
+/* ONE-PAGE-ELAD: טופס יצירת קשר - עיצוב מודרני ונקי */
+.contact-section-21 .contact-content {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px 22px;
+  box-shadow: 0 16px 40px rgba(7, 32, 66, 0.12);
+}
+.contact-section-21 .contact-content h3 {
+  font-size: 34px;
+  margin-bottom: 18px;
+  text-align: center;
+  color: #0f3564 !important;
+}
+.contact-section-21 .contact-content .form-clt input {
+  height: 58px;
+  border-radius: 12px;
+  border: 1px solid #dce5f2;
+  background: #f8fbff;
+  padding: 0 16px;
+  font-size: 18px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.contact-section-21 .contact-content .form-clt input:focus {
+  border-color: #1b87cf;
+  box-shadow: 0 0 0 3px rgba(27, 135, 207, 0.15);
+  background: #fff;
+}
+.contact-section-21 .contact-content .theme-btn {
+  width: 100%;
+  border-radius: 12px;
+  font-size: 21px;
+  padding: 16px 22px;
+}
+.contact-section-21 .contact-content .privacy-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #2d3539;
+  cursor: pointer;
+}
+.contact-section-21 .contact-content .privacy-check input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #1b87cf;
+}
+.contact-section-21 .contact-content .privacy-check a {
+  color: #0f3564;
+  text-decoration: underline;
+}
+@media (max-width: 767px) {
+  .contact-section-21 .contact-content {
+    padding: 20px 14px;
+  }
+  .contact-section-21 .contact-content h3 {
+    font-size: 26px;
+  }
+  .contact-section-21 .contact-content .form-clt input {
+    height: 52px;
+    font-size: 16px;
+  }
+  .contact-section-21 .contact-content .theme-btn {
+    font-size: 18px;
+    padding: 14px 18px;
+  }
+}
+
+/* ONE-PAGE-ELAD: לוגו טקסטואלי בהדר */
+.site-brand {
+  font-family: "Rubik", "Heebo", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  display: inline-block;
+}
+.site-brand-header {
+  color: #ffffff;
+  font-size: 30px;
+  line-height: 1.1;
+}
+.site-brand-mobile {
+  color: #0f3564;
+  font-size: 24px;
+  line-height: 1.2;
+}
+@media (max-width: 1199px) {
+  .site-brand-header {
+    font-size: 24px;
+  }
+}
+@media (max-width: 767px) {
+  .site-brand-header {
+    font-size: 20px;
+  }
+  .site-brand-mobile {
+    font-size: 20px;
   }
 }
 
