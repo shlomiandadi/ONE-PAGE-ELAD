@@ -1212,4 +1212,36 @@ html {
   }
 }
 
+/* ONE-PAGE-ELAD: פוטר - גל עליון מלא, צמצום מלמטה בלבד */
+.footer-section {
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+.footer-newsletter-wrapper.footer-top-restore {
+  padding-top: 95px;
+}
+.footer-widget-wrapper {
+  padding: 24px 0 30px !important;
+}
+.footer-widget-wrapper .footer-single-widget {
+  margin-top: 12px !important;
+}
+.footer-bottom-wrapper {
+  min-height: auto !important;
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+}
+.footer-bottom-wrapper .footer-bottom-right {
+  padding: 10px 16px !important;
+}
+@media (max-width: 991px) {
+  .footer-newsletter-wrapper.footer-top-restore {
+    padding-top: 60px;
+  }
+  .footer-widget-wrapper {
+    padding: 18px 0 20px !important;
+  }
+}
+
 
