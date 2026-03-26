@@ -1213,12 +1213,94 @@ html {
 }
 
 /* ONE-PAGE-ELAD: ריווח עדין בין ההדר להירו */
+.hero-1 {
+  padding-top: 120px !important;
+}
 .hero-section.hero-1 .hero-content {
   padding-top: 34px;
 }
+.hero-1 .hero-content h1 {
+  font-size: clamp(44px, 6.4vw, 88px) !important;
+  line-height: 1.08;
+}
 @media (max-width: 1199px) {
+  .hero-1 {
+    padding-top: 96px !important;
+  }
   .hero-section.hero-1 .hero-content {
     padding-top: 16px;
+  }
+  .hero-1 .hero-content h1 {
+    font-size: clamp(38px, 7.4vw, 64px) !important;
+  }
+}
+
+/* ONE-PAGE-ELAD: תיקון נקי להדר בדסקטופ */
+@media (min-width: 1200px) {
+  [dir="rtl"] .header-1 .header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 50px;
+    padding: 0 !important;
+    gap: 12px;
+  }
+  [dir="rtl"] .header-1 .header-left,
+  [dir="rtl"] .header-1 .header-right {
+    width: 220px;
+    display: flex;
+    align-items: center;
+  }
+  [dir="rtl"] .header-1 .header-left {
+    justify-content: flex-end;
+  }
+  [dir="rtl"] .header-1 .header-right {
+    justify-content: flex-start;
+  }
+  [dir="rtl"] .header-1 .header-left .header-logo {
+    display: inline-flex;
+    align-items: center;
+  }
+  [dir="rtl"] .header-1 .mean__menu-wrapper {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px !important;
+    gap: 0 !important;
+  }
+  [dir="rtl"] .header-1 .mean__menu-wrapper .social-icon {
+    display: none !important;
+  }
+  [dir="rtl"] .header-main .main-menu {
+    width: 100%;
+  }
+  [dir="rtl"] .header-main .main-menu ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+  [dir="rtl"] .header-main .main-menu ul li {
+    margin-inline-end: 0;
+  }
+  [dir="rtl"] .header-main .main-menu ul li a {
+    padding: 8px 0;
+    font-size: 14px;
+    line-height: 1.2;
+    text-align: center;
+  }
+  [dir="rtl"] .header-1 .header-right .header-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+  }
+  [dir="rtl"] .header-1 .header-right .header-contact a {
+    font-size: 12px;
+    line-height: 1.25;
+    margin: 0;
   }
 }
 
