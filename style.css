@@ -1212,31 +1212,14 @@ html {
   }
 }
 
-/* ONE-PAGE-ELAD: תיקון מיקום ההדר מעל Hero */
-.header-1 {
-  position: relative !important;
-  top: 0 !important;
-  padding-top: 10px;
-  z-index: 20 !important;
+/* ONE-PAGE-ELAD: ריווח עדין בין ההדר להירו */
+.hero-section.hero-1 .hero-content {
+  padding-top: 34px;
 }
-.header-1 .mean__menu-wrapper {
-  justify-content: flex-end;
-  gap: 20px !important;
-  padding: 0 16px !important;
-}
-.header-1 .mean__menu-wrapper::before {
-  left: 0 !important;
-  width: 100% !important;
-}
-.header-1 .mean__menu-wrapper .social-icon {
-  display: none !important;
-}
-.header-1 .header-main .main-menu {
-  margin-inline-start: auto;
-}
-.header-1 .header-left .header-logo {
-  display: inline-flex;
-  align-items: center;
+@media (max-width: 1199px) {
+  .hero-section.hero-1 .hero-content {
+    padding-top: 16px;
+  }
 }
 
 /* ONE-PAGE-ELAD: פוטר - גל עליון מלא, צמצום מלמטה בלבד */
