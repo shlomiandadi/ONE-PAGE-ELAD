@@ -1428,6 +1428,8 @@ html {
   max-width: 100%;
   height: auto;
   filter: none;
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 .hero-1 .hero-content h1 {
   font-size: clamp(44px, 6.4vw, 88px) !important;
