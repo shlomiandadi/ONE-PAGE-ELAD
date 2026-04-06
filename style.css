@@ -194,6 +194,25 @@ p, .about-text, .service-box-items p, .pricing-list li,
 .about-section .bg-shape {
   z-index: -1;
 }
+.about-section .bg-shape.about-shape-stack {
+  width: min(760px, 93vw);
+}
+.about-section .bg-shape.about-shape-stack .about-shape-ellipse {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.about-section .bg-shape.about-shape-stack .about-shape-photo {
+  position: absolute;
+  left: 16%;
+  top: -37%;
+  width: 88%;
+  height: 126%;
+  object-fit: cover;
+  border-radius: 999px;
+  box-shadow: 0 20px 48px rgba(15, 53, 100, 0.26);
+  z-index: 2;
+}
 /* RTL: מעבירים את האליפסה לשמאל כדי שתשב ליד עמודת התמונות (בעקבית התמונות בצד שמאל) */
 [dir="rtl"] .about-section .bg-shape {
   right: auto;
@@ -259,31 +278,114 @@ p, .about-text, .service-box-items p, .pricing-list li,
 /* הצגת התמונה בצד ימין (ב-RTL עמודת התמונה היא הימנית) */
 .why-choose-us-wrapper .choose-us-image-2 {
   display: block !important;
-  min-height: 320px;
+  height: 100%;
 }
 .why-choose-us-wrapper .choose-us-image-2 img {
   width: 100%;
   height: 100%;
-  min-height: 320px;
   object-fit: cover;
   border-radius: 12px;
+}
+.why-choose-us-wrapper .row {
+  align-items: stretch;
+}
+.why-choose-us-wrapper .choose-us-content {
+  height: 100%;
+}
+.why-choose-us-wrapper .choose-us-image-2 img {
+  animation: chooseImageFloat 6s ease-in-out infinite;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.why-choose-us-wrapper .choose-us-image-2:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 16px 32px rgba(15, 53, 100, 0.2);
+}
+.why-choose-us-wrapper .choose-us-content .icon-box-main .icon-box-items {
+  transition: transform 0.28s ease, box-shadow 0.28s ease, filter 0.28s ease;
+}
+.why-choose-us-wrapper .choose-us-content .icon-box-main:hover .icon-box-items {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(15, 53, 100, 0.24);
+  filter: saturate(1.08);
+}
+.why-choose-us-wrapper .choose-us-content .icon-box-main .icon-box-items .icon i {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.why-choose-us-wrapper .choose-us-content .icon-box-main:hover .icon-box-items .icon i {
+  transform: translateY(-2px) scale(1.08);
+}
+
+@keyframes chooseImageFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 .why-choose-us-section .choose-us-image {
   z-index: -1;
 }
 .why-choose-us-wrapper .choose-us-content .icon-box-main .left-shape,
 .why-choose-us-wrapper .choose-us-content .icon-box-main .left-bottom-shape {
-  z-index: -1;
+  display: none;
 }
 .why-choose-us-wrapper .choose-us-content .icon-box-main .icon-box-items {
   position: relative;
   z-index: 1;
+}
+.why-choose-us-wrapper .choose-us-content .icon-items-area {
+  margin-top: 10px;
+}
+.why-choose-us-wrapper .choose-us-content .icon-items-area .row {
+  row-gap: 28px;
+}
+.why-choose-us-wrapper .choose-us-content .icon-box-main {
+  background: transparent !important;
+  height: 100%;
+}
+.why-choose-us-wrapper .choose-us-content .icon-box-main .icon-box-items,
+.why-choose-us-wrapper .choose-us-content .icon-box-main.style-2 .icon-box-items,
+.why-choose-us-wrapper .choose-us-content .icon-box-main.style-3 .icon-box-items,
+.why-choose-us-wrapper .choose-us-content .icon-box-main.style-4 .icon-box-items {
+  border-radius: 16px !important;
+  min-height: 170px;
+  padding: 26px 20px;
+  background: linear-gradient(135deg, #0f3564 0%, #174c8a 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 10px 24px rgba(15, 53, 100, 0.16);
+}
+.why-choose-us-wrapper .choose-us-content .icon-box-main.style-2 .icon-box-items {
+  background: linear-gradient(135deg, #1f4aa8 0%, #1aa0df 100%);
+}
+.why-choose-us-wrapper .choose-us-content .icon-box-main.style-3 .icon-box-items {
+  background: linear-gradient(135deg, #174f86 0%, #0f3564 100%);
+}
+.why-choose-us-wrapper .choose-us-content .icon-box-main.style-4 .icon-box-items {
+  background: linear-gradient(135deg, #2b32b2 0%, #1488cc 100%);
+}
+.why-choose-us-wrapper .choose-us-content .icon-box-main .icon-box-items .icon {
+  margin: 0 auto 10px;
 }
 
 .service-section.fix .container,
 .service-section.fix .service-wrapper-2 {
   position: relative;
   z-index: 1;
+}
+.service-wrapper-2 .service-box-items.style-2,
+.service-wrapper-2 .service-box-items.style-4 {
+  margin-top: 30px !important;
+}
+.service-wrapper-2 .service-box-items .thumb {
+  height: 300px;
+  overflow: hidden;
+}
+.service-wrapper-2 .service-box-items .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .why-choose-us-section .container,
@@ -359,14 +461,46 @@ p, .about-text, .service-box-items p, .pricing-list li,
 }
 [dir="rtl"] .testimonial-wrapper .testimonial-box-items .content {
   text-align: right;
+  padding-right: 22px;
+}
+[dir="rtl"] .testimonial-wrapper .testimonial-box-items .content span {
+  color: #ffffff !important;
+}
+[dir="rtl"] .testimonial-wrapper .testimonial-box-items .client-image {
+  flex: 0 0 190px;
+  width: 190px;
+  height: 190px;
+  margin-top: 36px;
+}
+[dir="rtl"] .testimonial-wrapper .testimonial-box-items .client-image img {
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 18px;
+  display: block;
 }
 [dir="rtl"] .testimonial-wrapper .testi-client-info {
   margin-left: 0;
   margin-right: 110px;
 }
+[dir="rtl"] .testimonial-wrapper .testi-client-info .client-image-1 img {
+  width: 124px;
+  height: 124px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 16px;
+  display: block;
+}
 @media (max-width: 991px) {
   [dir="rtl"] .testimonial-wrapper .testi-client-info {
     margin-right: 0;
+  }
+  [dir="rtl"] .testimonial-wrapper .testimonial-box-items .client-image,
+  [dir="rtl"] .testimonial-wrapper .testimonial-box-items .client-image img {
+    width: 150px;
+    height: 150px;
+    flex-basis: 150px;
   }
 }
 [dir="rtl"] .testimonial-wrapper .testi-client-info .client-image-1.style-2 {
@@ -1181,6 +1315,73 @@ html {
   }
 }
 
+.travel-cta-section {
+  padding: 0 0 70px;
+}
+.travel-cta-section .travel-cta-wrap {
+  background: linear-gradient(90deg, #1488cc 0%, #2b32b2 100%);
+  border-radius: 16px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.travel-cta-section .travel-cta-wrap h3 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 27px;
+  line-height: 1.35;
+}
+.travel-cta-section .travel-cta-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+.travel-cta-section .travel-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 13px 22px;
+  background: #ffffff;
+  color: #0f3564;
+  font-weight: 700;
+  min-width: 220px;
+  transition: all 0.25s ease;
+}
+.travel-cta-section .travel-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
+.travel-cta-section .travel-cta-btn.travel-cta-btn-outline {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  color: #ffffff;
+}
+[dir="rtl"] .travel-cta-section .travel-cta-wrap {
+  direction: rtl;
+}
+
+@media (max-width: 991px) {
+  .travel-cta-section .travel-cta-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  .travel-cta-section .travel-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .travel-cta-section .travel-cta-btn {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 /* ONE-PAGE-ELAD: לוגו טקסטואלי בהדר */
 .site-brand {
   font-family: "Rubik", "Heebo", sans-serif;
@@ -1218,6 +1419,15 @@ html {
 }
 .hero-section.hero-1 .hero-content {
   padding-top: 34px;
+}
+.hero-1 .hero-image {
+  position: relative;
+}
+.hero-1 .hero-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  filter: none;
 }
 .hero-1 .hero-content h1 {
   font-size: clamp(44px, 6.4vw, 88px) !important;
