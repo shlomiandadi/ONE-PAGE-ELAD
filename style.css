@@ -429,6 +429,11 @@ p, .about-text, .service-box-items p, .pricing-list li,
   position: relative;
   z-index: 1;
 }
+.cta-download-section {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
 
 .footer-section .container {
   position: relative;
@@ -1545,6 +1550,46 @@ html {
   }
   .footer-widget-wrapper {
     padding: 18px 0 20px !important;
+  }
+}
+
+/* מובייל: תפריט צד ופוטר קומפקטיים יותר */
+[dir="rtl"] .offcanvas__content .mobile-menu,
+[dir="rtl"] .offcanvas__content .mean-container,
+[dir="rtl"] .offcanvas__content .mean-nav,
+[dir="rtl"] .offcanvas__content .mean-nav ul li a {
+  text-align: right !important;
+  direction: rtl;
+}
+
+@media (max-width: 767px) {
+  [dir="rtl"] .hero-1 .hero-content,
+  [dir="rtl"] .hero-1 .hero-content h1,
+  [dir="rtl"] .hero-1 .hero-content p {
+    text-align: right !important;
+  }
+  [dir="rtl"] .hero-1 .hero-content .theme-btn {
+    display: inline-flex;
+  }
+  .footer-bottom-wrapper {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+  }
+  .footer-bottom-wrapper .social-icon a {
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 13px;
+  }
+  .footer-bottom-wrapper .footer-bottom-right {
+    padding: 6px 10px !important;
+  }
+  .footer-bottom-wrapper .footer-bottom-right p {
+    font-size: 16px !important;
+    line-height: 1.35;
+  }
+  .footer-bottom-wrapper .footer-menu a {
+    font-size: 14px !important;
   }
 }
 
