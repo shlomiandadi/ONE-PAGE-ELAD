@@ -980,7 +980,7 @@
                         <div class="col-xl-6">
                             <div class="contact-content">
                                 <h3 class="wow fadeInUp" data-wow-delay=".3s">לתיאום שיחת ייעוץ</h3>
-                                <form action="contact.php" id="contact-form1" method="POST" class="contact-form-items">
+                                <form action="#" id="contact-form1" method="POST" class="contact-form-items" data-webhook-url="https://hooks.zapier.com/hooks/catch/8389196/u70o7ot/">
                                     <div class="row g-4">
                                         <div class="col-lg-6 wow fadeInUp" data-wow-delay=".3s">
                                             <div class="form-clt">
@@ -1002,7 +1002,7 @@
                                         <div class="col-lg-12 wow fadeInUp" data-wow-delay=".8s">
                                             <label class="privacy-check" for="privacy-approval">
                                                 <input type="checkbox" name="privacy_approval" id="privacy-approval" required>
-                                                <span>קראתי ואני מאשר/ת את <a href="#contact">מדיניות הפרטיות</a></span>
+                                                <span>קראתי ואני מאשר/ת את <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות</a></span>
                                             </label>
                                         </div>
                                         <div class="col-lg-12 wow fadeInUp" data-wow-delay=".3s">
@@ -1121,13 +1121,13 @@
                         <p>© 2026 אריאל שער - סוכן ביטוח פנסיוני | מספר רישיון: L-00105100</p>
                         <ul class="footer-menu">
                             <li>
-                                <a href="#contact">
-                                    תנאים והגבלות
+                                <a href="accessibility-statement.html">
+                                    הצהרת נגישות
                                 </a>
                             </li>
                             <li>
-                                <a href="#contact">
-                                    פרטיות
+                                <a href="privacy-policy.html">
+                                    מדיניות פרטיות
                                 </a>
                             </li>
                             <li>
@@ -1163,6 +1163,35 @@
         <script src="assets/js/wow.min.js"></script>
         <!--<< Main.js >>-->
         <script src="assets/js/main.js"></script>
+        <script>
+            (function () {
+                var form = document.getElementById("contact-form1");
+                if (!form) return;
+
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    var submitButton = form.querySelector("button[type='submit']");
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.textContent = "שולח...";
+                    }
+
+                    var webhookUrl = form.getAttribute("data-webhook-url");
+                    var formData = new FormData(form);
+                    formData.append("source", "shaer-finance.co.il");
+                    formData.append("submitted_at", new Date().toISOString());
+
+                    fetch(webhookUrl, {
+                        method: "POST",
+                        body: formData,
+                        mode: "no-cors"
+                    }).finally(function () {
+                        window.location.href = "thank-you.html";
+                    });
+                });
+            })();
+        </script>
         <script type="application/ld+json">
             {
               "@context": "https://schema.org",

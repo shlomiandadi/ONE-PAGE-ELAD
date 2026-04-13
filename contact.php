@@ -8,9 +8,40 @@ function h(?string $v): string {
 }
 
 $isPost = ($_SERVER['REQUEST_METHOD'] ?? '') === 'POST';
-$name = trim((string)($_POST['name'] ?? ''));
-$phone = trim((string)($_POST['phone'] ?? ''));
-$email = trim((string)($_POST['email'] ?? ''));
+
+if ($isPost) {
+    $webhookUrl = 'https://hooks.zapier.com/hooks/catch/8389196/u70o7ot/';
+    $payload = [
+        'name' => trim((string)($_POST['name'] ?? '')),
+        'phone' => trim((string)($_POST['phone'] ?? '')),
+        'email' => trim((string)($_POST['email'] ?? '')),
+        'subject' => trim((string)($_POST['subject'] ?? '')),
+        'message' => trim((string)($_POST['message'] ?? '')),
+        'privacy_approval' => isset($_POST['privacy_approval']) ? 'yes' : 'no',
+        'source' => 'shaer-finance.co.il',
+        'submitted_at' => date('c'),
+        'ip' => (string)($_SERVER['REMOTE_ADDR'] ?? ''),
+        'user_agent' => (string)($_SERVER['HTTP_USER_AGENT'] ?? ''),
+    ];
+
+    $json = json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+    if ($json !== false) {
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => "Content-Type: application/json\r\nAccept: application/json\r\n",
+                'content' => $json,
+                'timeout' => 5,
+                'ignore_errors' => true,
+            ],
+        ]);
+        @file_get_contents($webhookUrl, false, $context);
+    }
+
+    header('Location: thank-you.html', true, 303);
+    exit;
+}
 
 ?>
 <!DOCTYPE html>
@@ -37,17 +68,6 @@ $email = trim((string)($_POST['email'] ?? ''));
             <?php if (!$isPost): ?>
                 <h1>העמוד הזה מיועד לשליחת הטופס</h1>
                 <p class="muted">חזרו לדף הנחיתה ושלחו את הטופס במקטע יצירת הקשר.</p>
-                <a class="btn" href="index.html#contact">חזרה לדף הנחיתה</a>
-            <?php else: ?>
-                <h1>תודה, הפרטים התקבלו</h1>
-                <p class="muted">אחזור אליכם בהקדם לשיחת היכרות ללא התחייבות.</p>
-                <div class="grid" aria-label="פרטים שנשלחו">
-                    <div class="row"><strong>שם מלא:</strong> <?= h($name) ?></div>
-                    <div class="row"><strong>טלפון:</strong> <?= h($phone) ?></div>
-                    <?php if ($email !== ''): ?>
-                        <div class="row"><strong>אימייל:</strong> <?= h($email) ?></div>
-                    <?php endif; ?>
-                </div>
                 <a class="btn" href="index.html#contact">חזרה לדף הנחיתה</a>
             <?php endif; ?>
         </div>
