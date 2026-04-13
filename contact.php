@@ -72,5 +72,6 @@ if ($isPost) {
             <?php endif; ?>
         </div>
     </div>
+    <script src="https://cdn.enable.co.il/licenses/enable-L7364gw2aj9ikt4-1220-81352/init.js"></script>
 </body>
 </html>
