@@ -48,6 +48,49 @@ body {
   color: var(--text);
 }
 
+/* ===== Preloader – כיתוב מותאם במקום לוגו התבנית ===== */
+.preloader .animation-preloader .spinner {
+  display: none !important;
+}
+.preloader .preloader-brand {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+.preloader .preloader-name {
+  display: inline-block;
+  font-family: "Rubik", "Heebo", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.25rem, 9vw, 3.75rem);
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  background: linear-gradient(120deg, #0f3564 0%, #1b87cf 45%, #2b32b2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: preloaderBrandGlow 2s ease-in-out infinite;
+}
+@keyframes preloaderBrandGlow {
+  0%,
+  100% {
+    filter: brightness(1);
+    opacity: 1;
+  }
+  50% {
+    filter: brightness(1.12);
+    opacity: 0.92;
+  }
+}
+.preloader .preloader-loading-note {
+  font-family: "Heebo", sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.25em !important;
+  text-transform: none !important;
+  color: #5a6b82 !important;
+  margin: 0 !important;
+  text-align: center;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Rubik", sans-serif;
   color: var(--header);
