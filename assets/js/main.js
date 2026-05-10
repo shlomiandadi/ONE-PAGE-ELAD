@@ -24,6 +24,10 @@
             $(".offcanvas__info").addClass("info-open");
             $(".offcanvas__overlay").addClass("overlay-open");
         });
+        $(".offcanvas__info").on("click", ".mean-nav a, .mobile-menu a", function() {
+            $(".offcanvas__info").removeClass("info-open");
+            $(".offcanvas__overlay").removeClass("overlay-open");
+        });
 
         //>> Body Overlay Js Start <<//
         $(".body-overlay").on("click", function() {
@@ -191,16 +195,49 @@
                 },
             });
         }
-        
-        //>> Testimonial Slider Start <<//
-        if($('.testimonial-content-slider').length > 0) {
-            const testimonialContentSlider = new Swiper(".testimonial-content-slider", {
+
+        if($('.partners-slider').length > 0) {
+            const partnersSlider = new Swiper(".partners-slider", {
                 spaceBetween: 30,
                 speed: 2000,
                 loop: true,
                 autoplay: {
                     delay: 2000,
                     disableOnInteraction: false,
+                },
+                breakpoints: {
+                    1199: {
+                        slidesPerView: 5,
+                    },
+                    991: {
+                        slidesPerView: 4,
+                    },
+                    767: {
+                        slidesPerView: 3,
+                    },
+                    575: {
+                        slidesPerView: 2,
+                    },
+                    400: {
+                        slidesPerView: 2,
+                    },
+                    0: {
+                        slidesPerView: 1,
+                    },
+                }
+            });
+        }
+        
+        //>> Testimonial Slider Start <<//
+        if($('.testimonial-content-slider').length > 0) {
+            const testimonialContentSlider = new Swiper(".testimonial-content-slider", {
+                spaceBetween: 30,
+                speed: 900,
+                loop: true,
+                autoplay: {
+                    delay: 6000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
                 },
                 pagination: {
                     el: ".dot1",
