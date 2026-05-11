@@ -234,6 +234,9 @@
                 spaceBetween: 30,
                 speed: 900,
                 loop: true,
+                autoHeight: true,
+                observer: true,
+                observeParents: true,
                 autoplay: {
                     delay: 6000,
                     disableOnInteraction: false,
@@ -242,6 +245,18 @@
                 pagination: {
                     el: ".dot1",
                     clickable: true,
+                },
+                on: {
+                    init: function () {
+                        if (typeof this.updateAutoHeight === "function") {
+                            this.updateAutoHeight(0);
+                        }
+                    },
+                    slideChangeTransitionEnd: function () {
+                        if (typeof this.updateAutoHeight === "function") {
+                            this.updateAutoHeight(0);
+                        }
+                    },
                 },
             });
         }

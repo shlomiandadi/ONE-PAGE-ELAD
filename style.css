@@ -753,11 +753,82 @@ p, .about-text, .service-box-items p, .pricing-list li,
 [dir="rtl"] .testimonial-wrapper .testimonial-content-slider {
   overflow: hidden;
 }
-[dir="rtl"] .testimonial-wrapper .testimonial-content-slider .swiper-slide {
-  height: auto;
-}
 [dir="rtl"] .testimonial-wrapper .testimonial-box-items {
   overflow: hidden;
+}
+
+/* גובה המיכל לפי ההמלצה הנוכחית (Swiper autoHeight) */
+.testimonial-wrapper--pagination-below .testimonial-content-slider.swiper-autoheight,
+.testimonial-wrapper--pagination-below .testimonial-content-slider.swiper-autoheight .swiper-slide {
+  height: auto;
+}
+.testimonial-wrapper--pagination-below .testimonial-content-slider.swiper-autoheight .swiper-wrapper {
+  align-items: flex-start;
+  transition-property: transform, height;
+}
+.testimonial-wrapper--pagination-below .testimonial-content-slider.swiper-autoheight .swiper-slide .testimonial-box-items {
+  min-height: 0;
+}
+
+/* ניווט המלצות: שורה אופקית מתחת לכרטיס — בלי סיבוב, בלי קפיצת גובה בין סליידים */
+.testimonial-wrapper--pagination-below .swiper-dot.testimonial-swiper-dots {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  display: block !important;
+  width: 100%;
+  margin-top: 22px;
+  margin-bottom: 0;
+  padding: 8px 10px 0;
+  min-height: 0;
+  z-index: 5;
+}
+.testimonial-wrapper--pagination-below .swiper-dot.testimonial-swiper-dots .dot1 {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 0;
+}
+[dir="rtl"] .testimonial-wrapper--pagination-below .swiper-dot.testimonial-swiper-dots .dot1 {
+  flex-direction: row-reverse;
+}
+.testimonial-wrapper--pagination-below .swiper-dot.testimonial-swiper-dots::before {
+  display: none !important;
+  content: none !important;
+}
+.testimonial-wrapper--pagination-below .swiper-dot .swiper-pagination-bullet {
+  width: 11px !important;
+  height: 11px !important;
+  margin: 6px 7px !important;
+  opacity: 1 !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  border: 2px solid rgba(3, 101, 212, 0.35) !important;
+  box-sizing: border-box;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+.testimonial-wrapper--pagination-below .swiper-dot .swiper-pagination-bullet:hover {
+  border-color: rgba(3, 101, 212, 0.65) !important;
+}
+.testimonial-wrapper--pagination-below .swiper-dot .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: var(--theme-color) !important;
+  border-color: var(--theme-color) !important;
+  transform: scale(1.2);
+}
+@media (max-width: 1600px) {
+  .testimonial-wrapper--pagination-below .swiper-dot.testimonial-swiper-dots {
+    display: block !important;
+  }
+}
+@media (max-width: 1399px) {
+  .testimonial-wrapper--pagination-below .swiper-dot.testimonial-swiper-dots {
+    display: block !important;
+  }
 }
 
 /* ===== התאמה למובייל וטאבלט ===== */
